@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — NULLA DIES SINE LINEA</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✍️</text></svg>" />
+  <style>
+    .page-404 {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: var(--space-8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-404__bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .page-404__brushstroke {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.08;
+    }
+
+    .page-404__brushstroke--1 {
+      top: 20%;
+      right: 10%;
+      width: 400px;
+      height: 400px;
+      background: var(--steel);
+    }
+
+    .page-404__brushstroke--2 {
+      bottom: 20%;
+      left: 10%;
+      width: 300px;
+      height: 300px;
+      background: var(--accent);
+    }
+
+    .page-404__number {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 20vw, 14rem);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--bg-elevated);
+      position: relative;
+      z-index: 1;
+      margin-bottom: var(--space-4);
+      text-shadow: 0 0 60px var(--accent-dim);
+    }
+
+    .page-404__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-4);
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-404__text {
+      color: var(--text-secondary);
+      max-width: 400px;
+      margin-bottom: var(--space-10);
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-404__motto {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--accent);
+      opacity: 0.6;
+      margin-top: var(--space-12);
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-404">
+    <div class="page-404__bg">
+      <div class="page-404__brushstroke page-404__brushstroke--1"></div>
+      <div class="page-404__brushstroke page-404__brushstroke--2"></div>
+    </div>
+    <div class="page-404__number">404</div>
+    <h1 class="page-404__title">Esta línea no existe</h1>
+    <p class="page-404__text">La página que buscas no se encuentra. Quizás fue una línea que nunca se trazó.</p>
+    <a href="index.html" class="btn btn--primary">Volver al inicio</a>
+    <p class="page-404__motto">"Nulla dies sine linea"</p>
+  </div>
+</body>
+</html>

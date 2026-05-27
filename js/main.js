@@ -143,7 +143,21 @@
     setupForms();
     setupScrollAnimations();
     setupCounterAnimations();
+    setupLoader();
     generatePlaceholderImages();
+  }
+
+  // ── Loading Screen ──
+  function setupLoader() {
+    const loader = $('#loader');
+    if (!loader) return;
+
+    // Dismiss loader after animation completes
+    setTimeout(() => {
+      loader.classList.add('hidden');
+      // Remove from DOM after transition
+      setTimeout(() => loader.remove(), 600);
+    }, 1800);
   }
 
   // ── Navigation ──
