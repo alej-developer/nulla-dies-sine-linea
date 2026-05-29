@@ -11,9 +11,9 @@
   const ARTWORKS = [
     {
       id: 1,
-      title: { es: 'El pescador', en: 'The Fisherman' },
+      title: { es: 'El pescador', en: 'The Fisherman', it: 'Il pescatore' },
       category: 'pintura',
-      technique: { es: 'Óleo sobre lienzo', en: 'Oil on canvas' },
+      technique: { es: 'Óleo sobre lienzo', en: 'Oil on canvas', it: 'Olio su tela' },
       dimensions: '120 × 80 cm',
       year: '2025',
       image: 'assets/images/obras/pescador.jpg',
@@ -24,9 +24,9 @@
     },
     {
       id: 2,
-      title: { es: 'Fragmentos de azul', en: 'Blue Fragments' },
+      title: { es: 'Fragmentos de azul', en: 'Blue Fragments', it: 'Frammenti di blu' },
       category: 'pintura',
-      technique: { es: 'Acrílico sobre lienzo', en: 'Acrylic on canvas' },
+      technique: { es: 'Acrílico sobre lienzo', en: 'Acrylic on canvas', it: 'Acrilico su tela' },
       dimensions: '100 × 70 cm',
       year: '2025',
       image: 'assets/images/obras/fragmentos-azul.jpg',
@@ -36,9 +36,9 @@
     },
     {
       id: 3,
-      title: { es: 'Silueta nocturna', en: 'Night Silhouette' },
+      title: { es: 'Silueta nocturna', en: 'Night Silhouette', it: 'Silhouette notturna' },
       category: 'dibujo',
-      technique: { es: 'Carboncillo sobre papel', en: 'Charcoal on paper' },
+      technique: { es: 'Carboncillo sobre papel', en: 'Charcoal on paper', it: 'Carboncino su carta' },
       dimensions: '50 × 35 cm',
       year: '2024',
       image: 'assets/images/obras/silueta-nocturna.jpg',
@@ -48,9 +48,9 @@
     },
     {
       id: 4,
-      title: { es: 'Torso clásico', en: 'Classic Torso' },
+      title: { es: 'Torso clásico', en: 'Classic Torso', it: 'Torso classico' },
       category: 'escultura',
-      technique: { es: 'Arcilla modelada', en: 'Modeled clay' },
+      technique: { es: 'Arcilla modelada', en: 'Modeled clay', it: 'Argilla modellata' },
       dimensions: '45 × 20 × 15 cm',
       year: '2024',
       image: 'assets/images/obras/torso-clasico.jpg',
@@ -60,9 +60,9 @@
     },
     {
       id: 5,
-      title: { es: 'Ondas y reflejos', en: 'Waves and Reflections' },
+      title: { es: 'Ondas y reflejos', en: 'Waves and Reflections', it: 'Onde e riflessi' },
       category: 'pintura',
-      technique: { es: 'Técnica mixta sobre tabla', en: 'Mixed media on board' },
+      technique: { es: 'Técnica mixta sobre tabla', en: 'Mixed media on board', it: 'Tecnica mista su tavola' },
       dimensions: '90 × 60 cm',
       year: '2025',
       image: 'assets/images/obras/ondas-reflejos.jpg',
@@ -72,9 +72,9 @@
     },
     {
       id: 6,
-      title: { es: 'Manos al viento', en: 'Hands in the Wind' },
+      title: { es: 'Manos al viento', en: 'Hands in the Wind', it: 'Mani al vento' },
       category: 'dibujo',
-      technique: { es: 'Grafito sobre papel', en: 'Graphite on paper' },
+      technique: { es: 'Grafito sobre papel', en: 'Graphite on paper', it: 'Grafite su carta' },
       dimensions: '40 × 30 cm',
       year: '2024',
       image: 'assets/images/obras/manos-viento.jpg',
@@ -84,9 +84,9 @@
     },
     {
       id: 7,
-      title: { es: 'Figura emergente', en: 'Emerging Figure' },
+      title: { es: 'Figura emergente', en: 'Emerging Figure', it: 'Figura emergente' },
       category: 'escultura',
-      technique: { es: 'Yeso patinado', en: 'Patinated plaster' },
+      technique: { es: 'Yeso patinado', en: 'Patinated plaster', it: 'Gesso patinato' },
       dimensions: '35 × 18 × 12 cm',
       year: '2025',
       image: 'assets/images/obras/figura-emergente.jpg',
@@ -96,9 +96,9 @@
     },
     {
       id: 8,
-      title: { es: 'Retrato interior', en: 'Inner Portrait' },
+      title: { es: 'Retrato interior', en: 'Inner Portrait', it: 'Ritratto interiore' },
       category: 'pintura',
-      technique: { es: 'Óleo sobre lienzo', en: 'Oil on canvas' },
+      technique: { es: 'Óleo sobre lienzo', en: 'Oil on canvas', it: 'Olio su tela' },
       dimensions: '80 × 60 cm',
       year: '2024',
       image: 'assets/images/obras/retrato-interior.jpg',
@@ -109,9 +109,9 @@
     },
     {
       id: 9,
-      title: { es: 'Líneas del alma', en: 'Lines of the Soul' },
+      title: { es: 'Líneas del alma', en: 'Lines of the Soul', it: 'Linee dell\'anima' },
       category: 'dibujo',
-      technique: { es: 'Tinta china sobre papel', en: 'India ink on paper' },
+      technique: { es: 'Tinta china sobre papel', en: 'India ink on paper', it: 'Inchiostro di china su carta' },
       dimensions: '60 × 42 cm',
       year: '2025',
       image: 'assets/images/obras/lineas-alma.jpg',
@@ -240,11 +240,20 @@
     // Update HTML lang attribute
     document.documentElement.lang = lang;
 
-    // Update all elements with data-es/data-en
-    $$('[data-es][data-en]').forEach(el => {
+    // Update all elements with data-es/data-en/data-it
+    $$('[data-es][data-en][data-it]').forEach(el => {
       const text = el.dataset[lang];
       if (text) {
-        // For elements that contain only text or simple inline content
+        if (el.children.length === 0 || el.tagName === 'OPTION' || el.tagName === 'BLOCKQUOTE' || el.tagName === 'P') {
+          el.textContent = text;
+        }
+      }
+    });
+
+    // Also handle elements with only two languages (fallback)
+    $$('[data-es][data-en]:not([data-it])').forEach(el => {
+      const text = el.dataset[lang] || el.dataset['en'];
+      if (text) {
         if (el.children.length === 0 || el.tagName === 'OPTION' || el.tagName === 'BLOCKQUOTE' || el.tagName === 'P') {
           el.textContent = text;
         }
@@ -253,13 +262,17 @@
 
     // Update placeholders
     $$('[data-placeholder-es][data-placeholder-en]').forEach(el => {
-      el.placeholder = el.dataset[`placeholder${lang === 'es' ? 'Es' : 'En'}`];
+      const suffix = { es: 'Es', en: 'En', it: 'It' }[lang] || 'Es';
+      el.placeholder = el.dataset[`placeholder${suffix}`] || el.dataset['placeholderEn'];
     });
 
     // Update page title
-    document.title = lang === 'es'
-      ? 'NULLA DIES SINE LINEA — Tomás Andrés Delgado | Escultura · Pintura · Dibujo'
-      : 'NULLA DIES SINE LINEA — Tomás Andrés Delgado | Sculpture · Painting · Drawing';
+    const titles = {
+      es: 'NULLA DIES SINE LINEA — Tomás Andrés Delgado | Escultura · Pintura · Dibujo',
+      en: 'NULLA DIES SINE LINEA — Tomás Andrés Delgado | Sculpture · Painting · Drawing',
+      it: 'NULLA DIES SINE LINEA — Tomás Andrés Delgado | Scultura · Pittura · Disegno'
+    };
+    document.title = titles[lang] || titles.es;
   }
 
   // ── Gallery Rendering ──
@@ -273,9 +286,9 @@
 
     gallery.innerHTML = filteredArtworks.map((art, idx) => {
       const catLabels = {
-        pintura: { es: 'Pintura', en: 'Painting' },
-        escultura: { es: 'Escultura', en: 'Sculpture' },
-        dibujo: { es: 'Dibujo', en: 'Drawing' }
+        pintura: { es: 'Pintura', en: 'Painting', it: 'Pittura' },
+        escultura: { es: 'Escultura', en: 'Sculpture', it: 'Scultura' },
+        dibujo: { es: 'Dibujo', en: 'Drawing', it: 'Disegno' }
       };
 
       const featuredClass = art.featured ? ' gallery__item--featured' : '';
@@ -325,18 +338,18 @@
     shopGrid.innerHTML = shopItems.map(art => {
       const badgeClass = art.sold ? 'shop-card__badge--sold' : 'shop-card__badge--available';
       const badgeText = art.sold
-        ? (lang === 'es' ? 'Vendido' : 'Sold')
-        : (lang === 'es' ? 'Disponible' : 'Available');
+        ? ({ es: 'Vendido', en: 'Sold', it: 'Venduto' }[lang])
+        : ({ es: 'Disponible', en: 'Available', it: 'Disponibile' }[lang]);
 
       const priceDisplay = art.price
         ? (art.sold
           ? `<span class="shop-card__price--sold">${art.price}€</span>`
           : `<span class="shop-card__price">${art.price}€</span>`)
-        : `<span class="shop-card__price" style="font-size:0.9rem;">${lang === 'es' ? 'Consultar' : 'Inquire'}</span>`;
+        : `<span class="shop-card__price" style="font-size:0.9rem;">${{ es: 'Consultar', en: 'Inquire', it: 'Informazioni' }[lang]}</span>`;
 
       const ctaText = art.sold
         ? ''
-        : `<a href="#contact" class="btn btn--sm btn--outline">${lang === 'es' ? 'Comprar' : 'Buy'}</a>`;
+        : `<a href="#contact" class="btn btn--sm btn--outline">${{ es: 'Comprar', en: 'Buy', it: 'Acquista' }[lang]}</a>`;
 
       return `
         <div class="shop-card reveal">
@@ -447,12 +460,14 @@
         const data = new FormData(commissionForm);
         const lang = currentLang;
 
-        const subject = lang === 'es'
-          ? `Solicitud de encargo — ${data.get('name')}`
-          : `Commission request — ${data.get('name')}`;
+        const subject = { 
+          es: `Solicitud de encargo — ${data.get('name')}`,
+          en: `Commission request — ${data.get('name')}`,
+          it: `Richiesta di commissione — ${data.get('name')}`
+        }[lang];
 
-        const body = lang === 'es'
-          ? `Hola Tomás,\n\nMe gustaría solicitar un encargo:\n\n` +
+        const bodyTemplates = {
+          es: `Hola Tomás,\n\nMe gustaría solicitar un encargo:\n\n` +
             `Nombre: ${data.get('name')}\n` +
             `Email: ${data.get('email')}\n` +
             `Tipo de obra: ${data.get('type')}\n` +
@@ -460,8 +475,8 @@
             `Descripción: ${data.get('description')}\n` +
             `Presupuesto: ${data.get('budget') || 'No especificado'}\n` +
             `Plazo: ${data.get('deadline') || 'No especificado'}\n\n` +
-            `Quedo a la espera de tu respuesta.\n\nSaludos.`
-          : `Hi Tomás,\n\nI would like to request a commission:\n\n` +
+            `Quedo a la espera de tu respuesta.\n\nSaludos.`,
+          en: `Hi Tomás,\n\nI would like to request a commission:\n\n` +
             `Name: ${data.get('name')}\n` +
             `Email: ${data.get('email')}\n` +
             `Type of work: ${data.get('type')}\n` +
@@ -469,12 +484,24 @@
             `Description: ${data.get('description')}\n` +
             `Budget: ${data.get('budget') || 'Not specified'}\n` +
             `Deadline: ${data.get('deadline') || 'Not specified'}\n\n` +
-            `Looking forward to your reply.\n\nBest regards.`;
+            `Looking forward to your reply.\n\nBest regards.`,
+          it: `Ciao Tomás,\n\nVorrei richiedere una commissione:\n\n` +
+            `Nome: ${data.get('name')}\n` +
+            `Email: ${data.get('email')}\n` +
+            `Tipo di opera: ${data.get('type')}\n` +
+            `Dimensioni: ${data.get('size') || 'Non specificato'}\n` +
+            `Descrizione: ${data.get('description')}\n` +
+            `Budget: ${data.get('budget') || 'Non specificato'}\n` +
+            `Scadenza: ${data.get('deadline') || 'Non specificato'}\n\n` +
+            `In attesa di una tua risposta.\n\nCordiali saluti.`
+        };
+
+        const body = bodyTemplates[lang];
 
         const mailto = `mailto:tomasandresdelgado2002@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = mailto;
 
-        showToast(lang === 'es' ? '¡Solicitud preparada! Se abrirá tu email.' : 'Request prepared! Your email will open.');
+        showToast({ es: '¡Solicitud preparada! Se abrirá tu email.', en: 'Request prepared! Your email will open.', it: 'Richiesta preparata! Si aprirà la tua email.' }[lang]);
         commissionForm.reset();
       });
     }
@@ -489,13 +516,13 @@
         const data = new FormData(contactForm);
         const lang = currentLang;
 
-        const subject = data.get('subject') || (lang === 'es' ? 'Contacto desde la web' : 'Contact from website');
+        const subject = data.get('subject') || ({ es: 'Contacto desde la web', en: 'Contact from website', it: 'Contatto dal sito web' }[lang]);
         const body = `${data.get('message')}\n\n---\n${data.get('name')}\n${data.get('email')}`;
 
         const mailto = `mailto:tomasandresdelgado2002@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = mailto;
 
-        showToast(lang === 'es' ? '¡Mensaje preparado! Se abrirá tu email.' : 'Message prepared! Your email will open.');
+        showToast({ es: '¡Mensaje preparado! Se abrirá tu email.', en: 'Message prepared! Your email will open.', it: 'Messaggio preparato! Si aprirà la tua email.' }[lang]);
         contactForm.reset();
       });
     }
@@ -519,7 +546,7 @@
 
     if (!valid) {
       showToast(
-        currentLang === 'es' ? 'Por favor, completa los campos obligatorios.' : 'Please fill in the required fields.',
+        { es: 'Por favor, completa los campos obligatorios.', en: 'Please fill in the required fields.', it: 'Per favore, compila i campi obbligatori.' }[currentLang],
         'error'
       );
     }
