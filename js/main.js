@@ -19,7 +19,8 @@
       image: 'assets/images/obras/pescador.jpg',
       forSale: true,
       price: null, // Consultar
-      sold: false
+      sold: false,
+      featured: true
     },
     {
       id: 2,
@@ -103,7 +104,8 @@
       image: 'assets/images/obras/retrato-interior.jpg',
       forSale: true,
       price: 520,
-      sold: false
+      sold: false,
+      featured: true
     },
     {
       id: 9,
@@ -145,6 +147,7 @@
     setupCounterAnimations();
     setupLoader();
     generatePlaceholderImages();
+    updateCopyrightYear();
   }
 
   // ── Loading Screen ──
@@ -241,8 +244,8 @@
     $$('[data-es][data-en]').forEach(el => {
       const text = el.dataset[lang];
       if (text) {
-        // For elements that contain only text (no children)
-        if (el.children.length === 0 || el.tagName === 'OPTION') {
+        // For elements that contain only text or simple inline content
+        if (el.children.length === 0 || el.tagName === 'OPTION' || el.tagName === 'BLOCKQUOTE' || el.tagName === 'P') {
           el.textContent = text;
         }
       }
@@ -275,8 +278,10 @@
         dibujo: { es: 'Dibujo', en: 'Drawing' }
       };
 
+      const featuredClass = art.featured ? ' gallery__item--featured' : '';
+
       return `
-        <div class="gallery__item reveal" data-index="${idx}" data-category="${art.category}">
+        <div class="gallery__item${featuredClass} reveal" data-index="${idx}" data-category="${art.category}">
           <img
             class="gallery__img"
             src="${art.image}"
@@ -419,6 +424,14 @@
     function closeLightbox() {
       lightbox.classList.remove('open');
       document.body.style.overflow = '';
+    }
+
+    // Close lightbox when CTA is clicked
+    const lightboxCta = $('#lightboxCta');
+    if (lightboxCta) {
+      lightboxCta.addEventListener('click', () => {
+        closeLightbox();
+      });
     }
   }
 
@@ -672,6 +685,14 @@
     // This function is a no-op; real images should be placed in assets/images/obras/
     console.log('NULLA DIES SINE LINEA — Portfolio loaded');
     console.log('Replace images in assets/images/obras/ with real artwork photos');
+  }
+
+  // ── Copyright Year ──
+  function updateCopyrightYear() {
+    const el = $('#copyrightYear');
+    if (el) {
+      el.textContent = new Date().getFullYear();
+    }
   }
 
 })();
