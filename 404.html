@@ -97,10 +97,19 @@
       <div class="page-404__brushstroke page-404__brushstroke--2"></div>
     </div>
     <div class="page-404__number">404</div>
-    <h1 class="page-404__title">Esta línea no existe</h1>
-    <p class="page-404__text">La página que buscas no se encuentra. Quizás fue una línea que nunca se trazó.</p>
-    <a href="index.html" class="btn btn--primary">Volver al inicio</a>
+    <h1 class="page-404__title" data-es="Esta línea no existe" data-en="This line does not exist" data-it="Questa linea non esiste">Esta línea no existe</h1>
+    <p class="page-404__text" data-es="La página que buscas no se encuentra. Quizás fue una línea que nunca se trazó." data-en="The page you are looking for cannot be found. Perhaps it was a line that was never drawn." data-it="La pagina che cerchi non esiste. Forse era una linea mai tracciata.">La página que buscas no se encuentra. Quizás fue una línea que nunca se trazó.</p>
+    <a href="index.html" class="btn btn--primary" data-es="Volver al inicio" data-en="Back to home" data-it="Torna alla home">Volver al inicio</a>
     <p class="page-404__motto">"Nulla dies sine linea"</p>
   </div>
+  <script>
+    (function() {
+      var lang = localStorage.getItem('ndsl-lang') || 'es';
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-es][data-en][data-it]').forEach(function(el) {
+        if (el.dataset[lang]) el.textContent = el.dataset[lang];
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -8,7 +8,7 @@ Portfolio web del artista emergente **Tomás Andrés Delgado**.
 
 ## 🌐 Sitio Web
 
-Sitio estático bilingüe (ES/EN) con portafolio, tienda, y sistema de encargos.
+Sitio estático trilingüe (ES/EN/IT) con portafolio, tienda, y sistema de encargos.
 
 ## 📬 Contacto
 
@@ -23,7 +23,7 @@ Deployado en GitHub Pages (gratuito).
 ## 📂 Estructura
 
 ```
-├── index.html       → Página principal SPA bilingüe
+├── index.html       → Página principal SPA trilingüe (ES/EN/IT)
 ├── css/
 │   └── styles.css   → Design system completo
 ├── js/
