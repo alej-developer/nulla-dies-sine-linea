@@ -2,13 +2,13 @@
 
 > *"Ni un día sin una línea"* — Apeles
 
-Portfolio web del artista emergente **Tomás Andrés Delgado**.
+Portafolio web del artista emergente **Tomás Andrés Delgado**.
 
 **Disciplinas**: Escultura · Pintura · Dibujo
 
 ## 🌐 Sitio Web
 
-Sitio estático trilingüe (ES/EN/IT) con portafolio, tienda, y sistema de encargos.
+Sitio estático trilingüe (ES/EN/IT) con portafolio, tienda y sistema de encargos.
 
 ## 📬 Contacto
 
@@ -18,7 +18,7 @@ Sitio estático trilingüe (ES/EN/IT) con portafolio, tienda, y sistema de encar
 
 ## 🚀 Hosting
 
-Deployado en GitHub Pages (gratuito).
+Desplegado en GitHub Pages (gratuito).
 
 ## 📂 Estructura
 
